@@ -1,0 +1,471 @@
+@import "twitter/bootstrap/bootstrap";
+@import "twitter/bootstrap/responsive";
+
+// Set the correct sprite paths
+@iconSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings.png');
+@iconWhiteSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings-white.png');
+
+// Your custom LESS stylesheets goes here
+//
+// Since bootstrap was imported above you have access to its mixins which
+// you may use and inherit here
+//
+// If you'd like to override bootstrap's own variables, you can do so here as well
+// See http://twitter.github.com/bootstrap/less.html for their names and documentation
+//
+// Example:
+// @linkColor: #ff0000;
+@navbarHeight: 60px;
+
+// Top Border Radius
+.border-top-radius(@radius: 5px) {
+  -webkit-border-top-left-radius: @radius;
+  -webkit-border-top-right-radius: @radius;
+     -moz-border-top-left-radius: @radius;
+     -moz-border-top-right-radius: @radius;
+          border-top-left-radius: @radius;
+          border-top-right-radius: @radius;
+  -webkit-border-bottom-left-radius: 0px;
+  -webkit-border-bottom-right-radius: 0px;
+     -moz-border-bottom-left-radius: 0px;
+     -moz-border-bottom-right-radius: 0px;
+          border-bottom-left-radius: 0px;
+          border-bottom-right-radius: 0px;
+}
+
+// Bottom Border Radius
+.border-bottom-radius(@radius: 5px) {
+  -webkit-border-bottom-left-radius: @radius;
+  -webkit-border-bottom-right-radius: @radius;
+     -moz-border-bottom-left-radius: @radius;
+     -moz-border-bottom-right-radius: @radius;
+          border-bottom-left-radius: @radius;
+          border-bottom-right-radius: @radius;
+  -webkit-border-top-left-radius: 0px;
+  -webkit-border-top-right-radius: 0px;
+     -moz-border-top-left-radius: 0px;
+     -moz-border-top-right-radius: 0px;
+          border-top-left-radius: 0px;
+          border-top-right-radius: 0px;
+}
+// MAIN PART WITH DROP SHADDOW AT BOTTOM
+// -------------------------------------
+.main {
+	margin-top : 80px;
+  @shadow: 0 1px 12px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1);
+  .box-shadow(@shadow);
+}
+// HEADER
+// ------
+.channel-header-fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: @zindexFixedNavbar;
+}
+.channel-header-fixed-top .channel-header-inner {
+	padding : 10px 0px;
+  .border-radius(0);
+}
+.download-applestore {
+  display: block;
+	height : 40px;
+	width : 116px;
+	margin-top: 10px;
+	background-color : transparent;
+	background-image: url(App_Store_Badge_EN_0609.png);
+	background-repeat : no-repeat;
+	background-attachment : scroll;
+	background-position : left top;
+	background-clip : border-box;
+	background-origin : padding-box;
+	background-size : auto auto;
+}
+// Brand, links, text, and buttons
+.channel-header-fixed-top {
+  // Hover and active states
+  .channel-brand:hover {
+    text-decoration: none;
+  }
+  // Website or project name
+  .channel-brand {
+    float: left;
+    display: block;
+		height : 60px;
+		width : 280px;
+		background-color : transparent;
+		background-image : url("channel-logo-web.png");
+		background-repeat : no-repeat;
+		background-attachment : scroll;
+		background-position : left top;
+		background-clip : border-box;
+		background-origin : padding-box;
+		background-size : auto auto;
+  }
+  // Buttons in header
+  .btn-large {
+    margin-top : 12.5px; // make buttons vertically centered in navbar
+		font-family : "Trebuchet MS", "Trebuchet MS", sans-serif;
+  }
+}
+// Gradient is applied to it's own element because overflow visible is not honored by IE when filter is present
+.channel-header-inner {
+  height: @navbarHeight;
+  padding-left:  20px;
+  padding-right: 20px;
+	.opacity(90);
+  #gradient > .vertical-three-colors(#5C5C5C, #000000, 75%, #343434); // Don't use .gradientbar() here since it does a three-color gradient
+/*	.opacity(95);*/
+/*  #gradient > .vertical(@navbarBackgroundHighlight, @navbarBackground);*/
+  .border-radius(4px);
+  @shadow: 0 1px 6px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1);
+  .box-shadow(@shadow);
+}
+// MASTHEAD WITH TAG LINE AND SUB HEADER
+// -------------------------------------
+
+.masthead {
+	margin-top : 20px;
+	margin-bottom : 20px;
+	display : block;
+	h1 {
+		text-align : center;
+		font-size : 46px;
+		font-weight:75;
+/*		font-size : 54px;*/
+/*		font-weight : 100;*/
+		margin-bottom : 10px;
+		line-height : 1;
+	}
+	p {
+		color : @gray;
+		text-align : center;
+		font-size : 30px;
+		font-weight : 100;
+		margin-bottom : 5px;
+		line-height : 1;
+	}
+}
+// HERO UNIT
+// ---------
+.channel-hero-unit {
+	margin-top: 0px;
+	margin-bottom: 30px;
+	background-color: transparent;
+	.border-radius(6px);
+	border: 1px solid #ccc;
+	border-bottom-color: #bbb;
+	@shadow: 0 1px 6px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1);
+	.box-shadow(@shadow);
+}
+img.displayed {
+	opacity: 0.6;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: auto;
+	margin-bottom: 0px;
+}
+img:hover.displayed {
+	opacity: 0.9;
+}
+h1.marketing {
+	text-align : center;
+	margin-top : 12px;
+	margin-bottom: 0;
+	font-size: 20px;
+	line-height: 1;
+	letter-spacing: -1px;
+}
+p.marketing {
+	margin-top : 16px;
+	text-align : center;
+	font-size: 16px;
+	font-weight: 200;
+	line-height: 1.5;
+}
+.add-top-buffer {
+	margin-top : 20px;
+}
+.download-box {
+	float: bottom;
+	min-height : 60px;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	background-color : @grayDarker;
+	.opacity(90);
+	border: 1px solid #ccc;
+  border-bottom-color: #bbb;
+  #gradient > .vertical-three-colors(#5C5C5C, #000000, 75%, #343434); // Don't use .gradientbar() here since it does a three-color gradient
+  .border-bottom-radius(6px);
+  p {
+		margin-left:20px;
+		display: inline-block;
+		color: @white;
+		line-height : 1;
+		margin-top : 19px;
+		letter-spacing : 1px;
+		font-size: 22px;
+		font-weight: 100;
+	}
+	a {
+		display : inline-block;
+		margin-top: 10px;
+		margin-right: 20px;
+	}
+}
+// CAROUSEL
+// --------
+
+.channel-carousel {
+  position: relative;
+  margin-bottom: @baseLineHeight;
+  line-height: 1;
+}
+
+.channel-carousel-inner {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+img.iphone-screenshot {
+	display : block;
+	margin-top : 35px;
+	margin-bottom : 15px;
+	margin-left : auto;
+	margin-right : auto;
+}
+img.carousel-slide-header {
+	float : left;
+	height : 60px;
+	width : 80px;
+	opacity : 0.6;
+	display : block;
+	margin-left : 10px;
+	margin-right : 10px;
+	margin-top : 0px;
+	margin-bottom : 0px;
+}
+img:hover.carousel-slide-header {
+	opacity : 0.9;
+}
+img.carousel-slide-header_lower {
+	float : left;
+	height : 60px;
+	width : 80px;
+	opacity : 0.6;
+	display : block;
+	margin-left : 10px;
+	margin-right : 10px;
+	margin-top : 10px;
+	margin-bottom : -10px;
+}
+img:hover.carousel-slide-header_lower {
+	opacity : 0.9;
+}
+img.carousel-slide-header_low {
+	float : left;
+	height : 60px;
+	width : 80px;
+	opacity : 0.6;
+	display : block;
+	margin-left : 10px;
+	margin-right : 10px;
+	margin-top : 6px;
+	margin-bottom : -6px;
+}
+img:hover.carousel-slide-header_low {
+	opacity : 0.9;
+}
+h1.main-carousel-slide-heading {
+	text-align : center;
+	font-size : 24px;
+	font-weight :200;
+	line-height :24px;
+	margin-top : 35px;
+	margin-bottom : -10px;
+	margin-left : auto;
+	margin-right : auto;
+}
+h1.carousel-slide-heading {
+	padding-left : 10px;
+	padding-right : 10px;
+	text-align : left;
+	font-size : 32px;
+	font-weight :200;
+	line-height : 60px;
+	margin-top : 12px;
+	margin-bottom : 0;
+}
+p.carousel-slide-content {
+	padding-left : 10px;
+	padding-right : 10px;
+	text-align : left;
+	font-size : 22px;
+	font-weight : 100;
+	line-height : 28px;
+	letter-spacing: 1px;
+	margin-bottom : 26px;
+}
+.channel-carousel {
+
+  .item {
+    display : none;
+    position : relative;
+    .transition(.6s ease-in-out left);
+  }
+
+  // Account for jankitude on images
+  .item > img {
+    display : block;
+    line-height : 1;
+  }
+
+  .active,
+  .next,
+  .prev { display: block; }
+
+  .active {
+    left: 0;
+  }
+
+  .next,
+  .prev {
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  .next {
+    left: 100%;
+  }
+  .prev {
+    left: -100%;
+  }
+  .next.left,
+  .prev.right {
+    left: 0;
+  }
+
+  .active.left {
+    left: -100%;
+  }
+  .active.right {
+    left: 100%;
+  }
+
+}
+
+// Left/right controls for nav
+// ---------------------------
+
+.channel-carousel-control {
+  position: absolute;
+  top: 40%;
+  left: 0px;
+  width: 40px;
+  height: 40px;
+  margin-top: -20px;
+  font-size: 60px;
+  font-weight: 100;
+  line-height: 30px;
+  color: @white;
+  text-align: center;
+  background: @grayDarker;
+  border: 3px solid @white;
+  .border-radius(23px);
+  .opacity(50);
+
+  // we can't have this transition here
+  // because webkit cancels the carousel
+  // animation if you trip this while
+  // in the middle of another animation
+  // ;_;
+  // .transition(opacity .2s linear);
+
+  // Reposition the right one
+  &.right {
+    left: auto;
+    right: 0px;
+  }
+  // Hover state
+  &:hover {
+    color: @white;
+    text-decoration: none;
+    .opacity(90);
+  }
+}
+// FOOTER
+// ------
+.footer {
+	margin-top : 6px;
+	padding-top : 20px;
+	padding-bottom : 20px;
+  #gradient > .vertical(@white, #f5f5f5);
+	.fadalabs-branding:hover {
+    text-decoration: none;
+	}
+	.fadalabs-branding {
+		float : left;
+		display : block;
+		height : 20px;
+		width : 120px;
+		background-color : transparent;
+		background-image : url("fadalabs-logo-web.png");
+		background-repeat : no-repeat;
+		background-attachment : scroll;
+		background-position : left top;
+		background-clip : border-box;
+		background-origin : padding-box;
+		background-size : auto auto;
+	}
+  li {
+    display: inline-block;
+		float : left;
+    text-shadow: 0 1px 0 @white;
+		line-height : 22px;
+  }
+	a.channel-twitter {
+		opacity : 0.5;
+		padding-left:10px;
+    display: block;
+		height : 22px;
+		width : 22px;
+		background-color : transparent;
+		background-image : url("210-twitterbird.png");
+		background-repeat : no-repeat;
+		background-attachment : scroll;
+		background-clip : border-box;
+		background-origin : padding-box;
+		background-size : auto auto;		 
+	}
+	a:hover.channel-twitter {
+		opacity : 0.7;
+	}
+	a.channel-facebook {
+		opacity : 0.5;
+		padding-left:10px;
+    display: block;
+		height : 22px;
+		width : 22px;
+		background-color : transparent;
+		background-image : url("208-facebook.png");
+		background-repeat : no-repeat;
+		background-attachment : scroll;
+		background-clip : border-box;
+		background-origin : padding-box;
+		background-size : auto auto;		 
+	}
+	a:hover.channel-facebook {
+		opacity : 0.7;
+	}
+  .divider {
+    padding: 0 5px;
+    color: @grayLight;
+  }
+  .active a {
+    color: @grayDark;
+  }
+}
+

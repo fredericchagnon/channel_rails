@@ -1,0 +1,25 @@
+<div class="row">
+	<div class="span6 offset3">
+		<br>
+		<div class="channel-hero-unit">
+			<br>
+			<%= simple_form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :class => 'form-horizontal', :method => :post }) do |f| %>
+			<div class="control-group controls">
+				<h2>Resend unlock instructions</h2>
+			</div>
+		  <%= f.error_notification %>
+
+		  <div class="inputs">
+		    <%= f.input :email, :required => true %>
+		  </div>
+
+		  <div class="control-group controls">
+		    <%= f.button :submit, "Resend unlock instructions", :class => 'btn-large btn-primary' %>
+				<br>
+				<br>
+				<%= render "users/links" %>
+		  </div>
+			<% end %>
+		</div>
+	</div>
+</div>
